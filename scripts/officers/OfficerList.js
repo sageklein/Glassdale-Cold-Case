@@ -5,7 +5,6 @@ export const OfficerList = () => {
     getOfficers()
     .then(()=> {
         const officerArray = useOfficers()
-        console.log("Officer Array", officerArray)
         addOfficersToDOM(officerArray);
     })
 }

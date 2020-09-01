@@ -4,14 +4,12 @@ import { getCriminals, useCriminals } from "./CriminalProvider.js";
 export const CriminalList = () => {
 	getCriminals().then(() => {
         const criminalArray = useCriminals();
-        console.log("Criminal Array", criminalArray);
 		addCriminalsToDOM(criminalArray);
 	});
 };
 
 const addCriminalsToDOM = (criminalArray) => {
 	const domElement = document.querySelector(".criminalsContainer");
-
 	let HTMLArray = criminalArray.map((singleCriminal) => {
 		return CriminalHTML(singleCriminal);
 	});
