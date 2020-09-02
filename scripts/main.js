@@ -1,10 +1,10 @@
 console.log("All hooked up!")
-import { OfficerList } from "./officers/OfficerList.js"
+// import { OfficerList } from "./officers/OfficerList.js"
 import { CriminalList } from "./criminals/CriminalList.js";
 import { ConvictionSelect } from "./conviction/ConvictSelect.js";
 import { getConvictions } from "./conviction/ConvictionProvider.js";
 
 
-OfficerList();
+// OfficerList();
 CriminalList();
 getConvictions().then(() => { ConvictionSelect() });
