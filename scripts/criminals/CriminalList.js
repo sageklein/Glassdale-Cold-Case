@@ -17,21 +17,22 @@ eventHub.addEventListener("crimeChosen", event => {
             Then invoke render() and pass the filtered collection as
             an argument
         */
-		render(matchingCriminals);
-	} else render(useCriminals());
-});
+		addCriminalsToDOM(matchingCriminals)
+	}else{
+		addCriminalsToDOM(useCriminals())
+}});
 
 // Render ALL criminals initally
 export const CriminalList = () => {
     getCriminals()
     .then(() => {
 		const appStateCriminals = useCriminals();
-		render(appStateCriminals);
+		addCriminalsToDOM(appStateCriminals);
 	});
 };
 
 
-const render = criminalArray => {
+const addCriminalsToDOM = (criminalArray) => {
 	const domElement = document.querySelector(".criminalsContainer");
 
 	let HTMLArray = criminalArray.map((singleCriminal) => {
