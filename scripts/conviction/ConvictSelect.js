@@ -28,14 +28,13 @@ export const ConvictionSelect = () => {
 };
 
 const render = (convictionsCollection) => {
-	contentTarget.innerHTML = `
-        <select class="dropdown" id="crimeSelect">
-            <option value="0">Please select a crime</option>
-            ${convictionsCollection.map((crimeObj) => {
-				return `
-                        <option value="${crimeObj.conviction}">${crimeObj.conviction}</option>
-                    `;
-			})}
+    contentTarget.innerHTML = `
+    <select class="dropdown" id="crimeSelect">
+    <option value="0">Please select a crime</option>
+    ${convictionsCollection.map(crimeObj => {
+        console.log("conviction", convictionsCollection);
+				return `<option value="${crimeObj.conviction}">${crimeObj.conviction}</option>`;
+			}).join("")}
         </select>
     `;
 };

@@ -19,3 +19,12 @@
 .filters__crime {
     padding: 2em;
 }
+
+.noteFormContainer {
+    flex: 4;
+    display: flex;
+    max-width: 50em;
+	flex-direction: column;
+	flex-wrap: wrap;
+	margin: 1em;
+}
