@@ -12,7 +12,6 @@ eventHub.addEventListener("change", (event) => {
 				crimeThatWasChosen: event.target.value,
 			},
 		});
-		// Dispatch to event hub
 		eventHub.dispatchEvent(theChosenCrime);
 	}
 });
@@ -33,7 +32,7 @@ const render = (convictionsCollection) => {
     <option value="0">Please select a crime</option>
     ${convictionsCollection.map(crimeObj => {
         console.log("conviction", convictionsCollection);
-				return `<option value="${crimeObj.conviction}">${crimeObj.conviction}</option>`;
+				return `<option value="${crimeObj.id}">${crimeObj.name}</option>`;
 			}).join("")}
         </select>
     `;
