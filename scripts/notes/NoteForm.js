@@ -4,7 +4,7 @@ import { saveNote } from "./NoteProvider.js";
 	A bunch of input boxes related to the note information
 */
 const eventHub = document.querySelector(".container");
-const contentTarget = document.querySelector(".noteFormContainer");
+const contentTarget = document.querySelector("#noteFormContainer");
 
 eventHub.addEventListener("click", clickEvent => {
 	if (clickEvent.target.id === "saveNote") {
@@ -17,8 +17,11 @@ eventHub.addEventListener("click", clickEvent => {
 				suspect: noteCriminal.value,
 				date: Date.now(),
 			};
-
-			saveNote(newNote);
+			saveNote(newNote).then(() => {
+				const criminalsArray = useCriminals();
+				criminalsArray.sort(compare);
+				render(criminalsArray);
+			});
 		} else {
 			window.alert("Choose a Suspect");
 		}
@@ -42,6 +45,22 @@ const render = (criminalArray) => {
 
 export const NoteForm = () => {
 	getCriminals().then(() => {
-		render(useCriminals());
+		const criminalsArray = useCriminals();
+		criminalsArray.sort(compare);
+		render(criminalsArray);
 	});
+};
+
+const compare = (a, b) => {
+	// Use toUpperCase() to ignore character casing
+	const crimeA = a.name.toUpperCase();
+	const crimeB = b.name.toUpperCase();
+
+	let comparison = 0;
+	if (crimeA > crimeB) {
+		comparison = 1;
+	} else if (crimeA < crimeB) {
+		comparison = -1;
+	}
+	return comparison;
 };

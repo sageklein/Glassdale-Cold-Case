@@ -1,21 +1,24 @@
-import { NotesHTML } from "./Notes.js";
-import { getNotes, useNotes } from "./NotesProvider.js";
+import { NoteHTML } from "./Note.js";
+import { useNotes, getNotes } from "./NoteProvider.js";
+
+const eventHub = document.querySelector(".container");
+
+eventHub.addEventListener("noteStateChanged", event => {
+	addNotesToDOM(useNotes());
+});
 
 export const NoteList = () => {
 	getNotes().then(() => {
-		const notesArray = useNotes();
-		console.log("notesArray", notesArray);
-		addNotesToDOM(notesArray);
+		const noteArray = useNotes();
+		addNotesToDOM(noteArray);
 	});
 };
 
-const addNotesToDOM = (noteArray) => {
-	const domElement = document.querySelector(".notesContainer");
-
-	let HTMLArray = noteArray.map((singleNote) => {
-		return NotesHTML(singleNote);
-	});
-	console.log("HTMLArray", HTMLArray);
-
-	domElement.innerHTML = HTMLArray.join("");
+const addNotesToDOM = (arrayOfNotes) => {
+	const domElement = document.querySelector("#notesContainer");
+	let HTMLArray = arrayOfNotes.map((note) => NoteHTML(note));
+	domElement.innerHTML = `
+        <h2>Notes</h2>
+            ${HTMLArray.join("")}
+    `;
 };

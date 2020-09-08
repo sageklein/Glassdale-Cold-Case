@@ -3,10 +3,11 @@ import { OfficerList } from "./officers/OfficerList.js"
 import { CriminalList } from "./criminals/CriminalList.js";
 import { ConvictionSelect } from "./conviction/ConvictSelect.js";
 import { NoteForm } from "./notes/NoteForm.js";
-
+import { NoteList } from "./notes/NoteList.js";
 
 
 CriminalList();
 ConvictionSelect();
 OfficerList();
 NoteForm();
+NoteList();

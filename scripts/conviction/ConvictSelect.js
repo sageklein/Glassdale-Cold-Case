@@ -19,21 +19,22 @@ eventHub.addEventListener("change", (event) => {
 const contentTarget = document.querySelector(".filters__crime");
 
 export const ConvictionSelect = () => {
-    getConvictions()
-    .then(() => {
+	getConvictions().then(() => {
 		const convictionArray = useConvictions();
 		render(convictionArray);
 	});
 };
 
 const render = (convictionsCollection) => {
-    contentTarget.innerHTML = `
+	contentTarget.innerHTML = `
     <select class="dropdown" id="crimeSelect">
     <option value="0">Please select a crime</option>
-    ${convictionsCollection.map(crimeObj => {
-        console.log("conviction", convictionsCollection);
-				return `<option value="${crimeObj.id}">${crimeObj.name}</option>`;
-			}).join("")}
+    ${convictionsCollection
+		.map((crimeObj) => {
+            return `
+            <option value="${crimeObj.id}">${crimeObj.name}</option>`;
+		})
+		.join("")}
         </select>
     `;
 };
