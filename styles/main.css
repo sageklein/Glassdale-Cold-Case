@@ -1,3 +1,5 @@
+#notesContainer,
+.officersContainer, 
 .criminalsContainer {
     flex: 4;
 	display: flex;
@@ -6,10 +8,12 @@
 	margin: 1em;
 }
 
+.note-card,
+.card-officer,
 .card-criminal {
 	background-color: #FFFFFF;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-    max-width: 15em;
+    width: 15em;
   	transition: 0.3s;
 	margin: 1em;
 	padding: 1em;
@@ -20,6 +24,10 @@
     padding: 2em;
 }
 
+#noteForm--text {
+    min-height: 10em;
+}
+
 #noteFormContainer {
     flex: 4;
     display: flex;
@@ -28,11 +36,9 @@
 	flex-wrap: wrap;
 	margin: 1em;
 }
-#notesContainer {
-    flex: 4;
-    display: flex;
-    max-width: 50em;
-	flex-direction: column;
-	flex-wrap: wrap;
-	margin: 1em;
+
+#saveNote {
+    padding: .2em;
+    max-width: 10em;
+    max-height: 8em;
 }

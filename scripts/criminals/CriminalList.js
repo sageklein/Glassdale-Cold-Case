@@ -28,7 +28,8 @@ eventHub.addEventListener("crimeChosen", (event) => {
 // Render ALL criminals initally
 export const CriminalList = () => {
 	getCriminals().then(() => {
-		const appStateCriminals = useCriminals();
+        const appStateCriminals = useCriminals();
+
 		addCriminalsToDOM(appStateCriminals);
 	});
 };
@@ -41,4 +42,17 @@ const addCriminalsToDOM = (criminalArray) => {
 	});
 
 	domElement.innerHTML = HTMLArray.join("");
+};
+const compare = (a, b) => {
+	// Use toUpperCase() to ignore character casing
+	const crimeA = a.name.toUpperCase();
+	const crimeB = b.name.toUpperCase();
+
+	let comparison = 0;
+	if (crimeA > crimeB) {
+		comparison = 1;
+	} else if (crimeA < crimeB) {
+		comparison = -1;
+	}
+	return comparison;
 };

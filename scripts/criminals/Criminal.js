@@ -1,15 +1,30 @@
+import { AlibiDialog } from "./AlibiDialog.js";
+
+const eventHub = document.querySelector(".container");
+
+eventHub.addEventListener("click", (event) => {
+	if (event.target.id.startsWith("associates--")) {
+		const [prefix, criminalId] = event.target.id.split("--");
+
+		const alibiEvent = new CustomEvent("associatesClicked", {
+			detail: {
+				chosenCriminal: criminalId,
+			},
+		});
+
+		eventHub.dispatchEvent(alibiEvent);
+	}
+});
+
 export const CriminalHTML = (criminalObj) => {
-    return `
-        <section id="criminal-${criminalObj.id}" class="card-criminal"> 
-            <h2>Criminal Name: ${criminalObj.name}</h2>
-            <h1>Age: ${criminalObj.age}</h1>
-            <h1>Crime: ${criminalObj.conviction}</h1>            
-            <h1>Term Start: ${new Date(
-				criminalObj.incarceration.start
-			).toLocaleDateString("en-US")}</h1>
-            <h1>Term End: ${new Date(
-				criminalObj.incarceration.end
-			).toLocaleDateString("en-US")}</h1>
-        </section>
-    `;
+	return `
+		<section id="officer-${criminalObj.id}" class="card-criminal">
+			<p><h2>Name: ${criminalObj.name}</h2></p>
+			<p><h3>Age: ${criminalObj.age}</h3></p>
+			<p><h3>Crime: ${criminalObj.conviction}</h3></p>
+			<p><h3>Dates: </h3></p>
+			<button id="associates--${criminalObj.id}">Alibis</button>
+			${AlibiDialog(criminalObj.id)}
+		</section>
+	`;
 };

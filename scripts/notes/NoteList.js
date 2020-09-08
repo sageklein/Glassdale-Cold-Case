@@ -18,7 +18,6 @@ const addNotesToDOM = (arrayOfNotes) => {
 	const domElement = document.querySelector("#notesContainer");
 	let HTMLArray = arrayOfNotes.map((note) => NoteHTML(note));
 	domElement.innerHTML = `
-        <h2>Notes</h2>
             ${HTMLArray.join("")}
     `;
 };

@@ -30,8 +30,7 @@ eventHub.addEventListener("click", clickEvent => {
 
 const render = (criminalArray) => {
 	contentTarget.innerHTML = `
-       <h3>New Note Details</h3>
-		<textarea id="noteForm--text" placeholder="Put a note here"></textarea>
+		<textarea id="noteForm--text" placeholder="Add Note"></textarea>
 		<select class="dropdown" id="noteForm--criminal">
 			<option value="0">Please select a criminal...</option>
 			${criminalArray.map((criminalObject) => {
@@ -39,7 +38,7 @@ const render = (criminalArray) => {
 				})
 				.join("")}
 		</select>
-        <button id="saveNote">Save Note</button>
+        <button id="saveNote">Save</button>
     `;
 };
 
