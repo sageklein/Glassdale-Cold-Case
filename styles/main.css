@@ -25,20 +25,30 @@
 }
 
 #noteForm--text {
+    padding: .5em;
     min-height: 10em;
 }
 
 #noteFormContainer {
     flex: 4;
     display: flex;
-    max-width: 50em;
+    max-width: 48em;
 	flex-direction: column;
-	flex-wrap: wrap;
+    flex-wrap: wrap;
+    padding: .8em;
 	margin: 1em;
 }
 
-#saveNote {
-    padding: .2em;
-    max-width: 10em;
+#noteForm--criminal{
+    max-width: 14em;
     max-height: 8em;
+    margin-top: 1em;
+}
+#saveNote {
+    align-self: flex-end;
+    padding: .5em 2.2em .5em 2.2em;
+    margin: 1em;
+}
+.titleHTML {
+    padding-left: 1.5em;
 }
