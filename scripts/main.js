@@ -4,12 +4,13 @@ import { CriminalList } from "./criminals/CriminalList.js";
 import { ConvictionSelect } from "./conviction/ConvictSelect.js";
 import { NoteForm } from "./notes/NoteForm.js";
 import { NoteList } from "./notes/NoteList.js";
-// import { makeWitnessBtn } from "./witnesses/WitnessList"
+import { makeWitnessBtn } from "./witnesses/WitnessList.js"
 
 
-CriminalList();
-ConvictionSelect();
+
 OfficerList();
 NoteForm();
 NoteList();
-// makeWitnessBtn();
+CriminalList();
+ConvictionSelect();
+makeWitnessBtn();

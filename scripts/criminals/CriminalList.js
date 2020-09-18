@@ -9,10 +9,11 @@ eventHub.addEventListener("crimeChosen", (event) => {
 	if (event.detail.crimeThatWasChosen !== "0") {
 		/*
             Filter the criminals application state down to the people that committed the crime
-        */
-		const matchingCriminals = useCriminals().filter((currentCriminal) => {
+		*/
+		let allCriminals = useCriminals()
+		const matchingCriminals = allCriminals.filter((currentCriminal) => {
 			return (
-				currentCriminal.crime === event.detail.crimeThatWasChosen
+				currentCriminal.conviction === event.detail.crimeThatWasChosen
 			);
 		});
 		/*

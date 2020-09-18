@@ -8,7 +8,7 @@ const addWitnessesToDOM = (arrayOfWitnesses) => {
 	const domElement = document.querySelector(".criminalsContainer");
 	const HTMLArray = arrayOfWitnesses.map((witness) => WitnessHTML(witness));
 	domElement.innerHTML = `
-        <h2>Witnesses</h2>
+        <h2 class="titleHTML">Witnesses: </h2><br>
         ${HTMLArray.join("")}
     `;
 };
@@ -24,7 +24,7 @@ export const makeWitnessBtn = () => {
 	const btnPlacement = document.querySelector(".filters__witness");
 	btnPlacement.innerHTML += `
     <div class="buttons">
-        <button type="button" id="witnessStatementsBtn">WitnessStatements</button>
+        <button type="button" id="witnessStatementsBtn">Witnesses</button>
     </div>
     `;
 };
